@@ -1,9 +1,9 @@
 import React from 'react'
-import { Heading } from '@chakra-ui/react'
+import { Team } from './components/Team'
 
 function App() {
   return (
-    <Heading>Hello!</Heading>
+    <h1>Hello</h1>
   )
 }
 
