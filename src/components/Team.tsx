@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Button } from '@chakra-ui/react'
-import { requestData } from '../utils/request_data'
+import { HttpRequest } from '../utils/HttpRequest'
 
 type Team = {
   id:             string;
@@ -20,18 +20,18 @@ export function Team({ id }: Props) {
   const url = `http://localhost:9000/nfl/teams/${id}`
 
   useEffect(() => {
-    requestData(setTeam, url);  
+    HttpRequest(setTeam, url);  
   }, [])
 
   return <>
-    { team && <>
+    { team && <div style={{color: `#${team.color}`}}>
         <h1>{team.id}</h1>
         <h1>{team.location}</h1>
         <h1>{team.name}</h1>
         <h1>{team.abbreviation}</h1>
         <h1>{team.color}</h1>
         <h1>{team.alternatecolor}</h1>
-      </>
+      </div>
     }
   </>
 }
